@@ -1,3 +1,4 @@
+"""
 1. self cannot be used when calling a static method or without an instance
 2. getattr() and setattr() to get attribute of an Object
 3. __class__ shows the type:
@@ -13,3 +14,27 @@
    Do not use OBJECT_NAME.CLASS_ATTR_NAME = VALUE, it creates a new instance variable!!
 7. variables without SELF are just local
 8. when reading a self.VARIABLE_NAME, if it doesn't exists it will use the static variable. Then COW
+"""
+class Myclass:
+    static_var = "static"
+
+    def __init__(self):
+        static_var = "local_var"
+
+        print("static_var:", static_var)
+        print("self.static_var:", self.static_var)
+        print("Myclass.static_var:", Myclass.static_var)
+
+        self.static_var = "dynamic1"
+
+        print("static_var:", static_var)
+        print("self.static_var:", self.static_var)
+        print("Myclass.static_var:", Myclass.static_var)
+
+        print()
+
+
+i1 = Myclass()
+i2 = Myclass()
+
+print(Myclass.static_var)
