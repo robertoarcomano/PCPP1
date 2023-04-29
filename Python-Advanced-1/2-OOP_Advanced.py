@@ -9,6 +9,8 @@ class Myclass:
         return self
     def __getattr__(self, attribute):
         return attribute;
+    def __getattribute__(self, attribute):
+        return super().__getattribute__(attribute) + 0;
 
 myclass1 = Myclass(1)
 print("myclass1.n:",myclass1.n)
