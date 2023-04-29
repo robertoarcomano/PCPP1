@@ -7,10 +7,8 @@ class Myclass:
     def __iadd__(self, obj):
         self.n = self.n + obj.n
         return self
-    # def __getattribute__(self, attribute):
-    #     print(attribute)
-    #     # if attribute == "what-is-my-attribute":
-    #     #     return self.n
+    def __getattr__(self, attribute):
+        return attribute;
 
 myclass1 = Myclass(1)
 print("myclass1.n:",myclass1.n)
@@ -25,5 +23,7 @@ print()
 myclass1 += myclass2
 print("myclass1 += myclass2")
 print("myclass1.n:", myclass1.n)
+print()
 
+print("myclass1.not_existing_attribute:", myclass1.not_existing_attribute)
 
