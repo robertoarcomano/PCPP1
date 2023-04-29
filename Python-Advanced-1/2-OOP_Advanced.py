@@ -28,4 +28,10 @@ print("myclass1.n:", myclass1.n)
 print()
 
 print("myclass1.not_existing_attribute:", myclass1.not_existing_attribute)
+print()
 
+print("isinstance(myclass1,object):", isinstance(myclass1,object))
+print()
+
+print("issubclass(Myclass,object):", issubclass(Myclass,object))
+print()
