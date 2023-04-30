@@ -13,7 +13,10 @@
     2.8 caching.
 3. Use closure the use a wrapper function inside a decorator
 4. You can pass own arguments to decorator by creating a generic decorator and then creating 2 wrappers
-5. You can use more than 1 decorators: they will be executed starting from the outer to the inner
+5. You can use more than 1 decorator: they will be executed starting from the outer to the inner
+6. You can use a Class decorating: use __init__ amd __call__
+7. You can use a Class decorating with arguments: use __init__ amd __call__
+9. You can use a Class decorated
 """
 def decorator(function):
     print("I am calling the function:", function.__name__)
@@ -77,3 +80,56 @@ def myfunction_with_generic_stacked_decorators(*args, **kwargs):
 
 myfunction_with_generic_stacked_decorators(5, b=6)
 print()
+
+class ClassDecorating:
+    def __init__(self, function):
+        self.function = function
+    def __call__(self, *args, **kwargs):
+        print("ClassDecorating.pre. args:", args, " kwargs:", kwargs)
+        self.function(*args, **kwargs)
+        print("ClassDecorating.post. args:", args, " kwargs:", kwargs)
+
+@ClassDecorating
+def myfunction_with_class_decorating(*args, **kwargs):
+    print("myfunction_with_class_decorating. args:", args, "kwargs:", kwargs)
+
+myfunction_with_class_decorating(1, b=2)
+print()
+
+class ClassDecoratingWithArguments:
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+    def __call__(self, function):
+        def wrapper(*args, **kwargs):
+            print("ClassDecoratingWithArguments.pre. args:", args, " kwargs:", kwargs)
+            function(*args, **kwargs)
+            print("ClassDecoratingWithArguments.post. args:", args, " kwargs:", kwargs)
+        return wrapper
+
+@ClassDecoratingWithArguments(3, c=2)
+def myfunction_with_class_decorating_with_arguments(*args, **kwargs):
+    print("myfunction_with_class_decorating_with_arguments. args:", args, "kwargs:", kwargs)
+
+myfunction_with_class_decorating_with_arguments(1, b=2)
+print()
+
+def myfunction_decorator_of_class(class_):
+    class_.__old_getattribute__ = class_.__getattribute__
+    def new_getattr(self, name):
+        if name == "name":
+            print("name is read")
+        return class_.__old_getattribute__(self, name)
+    class_.__getattribute__ = new_getattr
+    return class_
+@myfunction_decorator_of_class
+class ClassDecorator:
+    def __init__(self, name):
+        self.name = name
+    def get_name(self):
+        return self.name
+
+class_decorator = ClassDecorator("class_decorator")
+class_decorator.get_name()
+print()
+
