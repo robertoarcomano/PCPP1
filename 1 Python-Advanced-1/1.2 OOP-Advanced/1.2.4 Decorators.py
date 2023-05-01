@@ -16,7 +16,7 @@
 5. You can use more than 1 decorator: they will be executed starting from the outer to the inner
 6. You can use a Class decorating: use __init__ amd __call__
 7. You can use a Class decorating with arguments: use __init__ amd __call__
-9. You can use a Class decorated
+8. You can decorate a Class
 """
 def decorator(function):
     print("I am calling the function:", function.__name__)
