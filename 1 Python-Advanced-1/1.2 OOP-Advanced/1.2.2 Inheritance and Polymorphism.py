@@ -33,3 +33,5 @@ tom = Man("Tom")
 lucy = Woman("Lucy")
 for person in (tom, lucy):
     person.presentation()
+
+print(help(tom))
