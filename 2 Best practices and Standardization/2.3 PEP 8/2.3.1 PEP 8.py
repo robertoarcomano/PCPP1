@@ -40,6 +40,13 @@
     13.5 Block comments:
         13.5.1 The code just follows the comment
         13.5.2 Same indentation as the code
+    13.6 Inline comments:
+        13.6.1 Same line as the code
+        13.6.2 Add at least 2 whitespaces
+        13.6.3 Never tell obvious or unnecessary things
+        13.6.4 Self-commenting code is better than any comments
+    13.7 Documentation Strings (docstrings) """"""
+14 Naming conventions
 """
 import os
 import sys
@@ -87,3 +94,9 @@ if a == 0:
     #
     # Line 2
 
+a = 1  # This is an inline comment.
+
+"""
+This is a example of documentation strings, docstrings
+"""
+""" This is another example of documentation strings, docstrings """
