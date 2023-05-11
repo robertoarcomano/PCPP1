@@ -47,6 +47,39 @@
         13.6.4 Self-commenting code is better than any comments
     13.7 Documentation Strings (docstrings) """"""
 14 Naming conventions
+    14.1 Naming styles
+        14.1.1 Do not use l I O because they can be confused with 0 and 1
+        14.1.2 Snake_case: underscore instead of whitespace
+        14.1.3 CamelCase
+        14.1.4 Acronym in capital: HTTPServerError
+        14.1.5 myMixedCase
+        14.1.6 My_Snake_Camel_Case
+        14.1.7 _internal_use (not imported)
+        14.1.8 class_ to avoid conflicts with Python reserved keywords
+        14.1.9 __my_name_mangling
+        14.1.10 __my_var__ is used for magic in a controlled namespace
+    14.2 Recommendations
+        14.2.1 my_variable
+        14.2.2 my_function
+        14.2.3 MyClass
+        14.2.4 my_class_method
+        14.2.5 self for instance methods
+        14.2.6 cls for class methods
+        14.2.7 MY_CONSTANT
+        14.2.8 my_module.py
+        14.2.9 mypackage
+        14.2.10 MyType
+        14.2.11 MyException
+        14.2.12 
+15 Programming recommendations
+    15.1 a is None
+    15.2 if a is True or better if a
+    15.3 "not a is None" becomes "a is not None"
+    15.4 Use "if x is not None" instead "if x"
+    15.5 Specialize exceptions checking
+    15.6 Use ''.startswith() and ''.endswith() for prefixes and suffixes
+    15.7 Use String methods
+    15.8 
 """
 import os
 import sys
