@@ -37,6 +37,16 @@
         6.16 reStructuredText
         6.17 NumPy/SciPy
         6.18 Use can use Sphinx tool to generate documentation
+7 General documentation:
+    7.1 Readme for brief information, purpose and installation guidelines
+    7.2 Examples.py, for how to use it
+    7.3 License
+    7.4 How to contribute
+8 Try using automated tools
+    8.1 Sphinx
+    8.2 Pdoc
+9 Linters and fixers (IDE)
+10 Use object.__doc__ to show the docstrings
 """
 
 
@@ -46,4 +56,10 @@ def hello(name: str) -> str:
 
 def my_function():
     """I am a docstring."""
-    ...
+
+
+print("help(print)")
+print(help(print))
+print("print.__doc__")
+print(print.__doc__)
+
