@@ -21,7 +21,7 @@
     4.3 get()
 5 Observers:
     1 Callback
-    2 obsid = variable.trace(trace_mode, observer)
+    2 obsid = variable.trace(trace_mode, observer) to start tracing
         2.1 trace_mode = being aware of:
             2.1.1 "r" get()
             2.1.2 "r" set()
@@ -32,37 +32,40 @@
         3.1 id, internal use
         3.2 ix, internal use (empty string)
         3.3 act, reason ("r", "w", "u")
+        3.4 def obs(*) if we do not need parameters
+    4 variable.trace_vdelete(trace_mode,obsid) to stop tracing
 
 """
 import tkinter as tk
-TIMER = 100
-TIMES = 0
-MAX = 20
-def timer():
-    global TIMES
-    TIMES +=1
-    print("timer:", TIMES)
-    id = my_button.after(TIMER, timer)
-    if TIMES > MAX:
-        my_button.after_cancel(id)
-        my_frame.destroy()
-def focus():
-    print (my_window.focus_get())
-    my_button1.focus_set()
+
+
+def show_status():
+    pass
+    # print(status.get())
+
+
+def swap_status():
+    status.set(1-status.get())
+    # print(status.get())
+
+
+def callback(id, idx, act):
+    print("Status of the variable changed because of", act, id, idx)
+
+
+def stopobserving():
+    status.trace_vdelete("w", trace_id)
+
 
 my_window = tk.Tk()
-my_button = tk.Button(my_window, text="OK", command=focus)
+status = tk.IntVar()
+my_checkbutton = tk.Checkbutton(my_window, text="value", variable=status, command=show_status)
+my_checkbutton.pack()
+my_button = tk.Button(my_window, text="swap status", command=swap_status)
 my_button.pack()
-my_button.after(TIMER, timer)
-
-my_frame = tk.Frame(my_window, width=100, height=100)
-my_frame.pack()
-my_new_label = tk.Label(my_frame, text="My new label")
-my_new_label.pack()
-my_new_button = tk.Button(my_frame, text="My new button")
-my_new_button.pack()
-
-my_button1 = tk.Button(my_window, text="CANCEL")
+my_button1 = tk.Button(my_window, text="stop observing", command=stopobserving)
 my_button1.pack()
+
+trace_id = status.trace("w", callback)
 
 my_window.mainloop()
