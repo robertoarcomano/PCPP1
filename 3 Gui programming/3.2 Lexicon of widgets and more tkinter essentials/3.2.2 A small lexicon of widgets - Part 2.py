@@ -17,7 +17,6 @@
     7.1 Attributes: show will show its value
     7.2 Methods: get, set, delete, insert
 8 Text
-9 Menu
 """
 import tkinter as tk
 
@@ -47,6 +46,7 @@ my_entry.pack()
 
 my_text = tk.Text(my_label_frame)
 my_text.pack()
+my_text.insert(tk.INSERT, my_entry_text.get())
 
 my_text_variable = tk.StringVar()
 my_text_variable.set("Hello!")
