@@ -13,10 +13,6 @@
     6.2 title
     6.3 border
     6.4 labelanchor
-7 Entry:
-    7.1 Attributes: show will show its value
-    7.2 Methods: get, set, delete, insert
-8 Text
 """
 import tkinter as tk
 
@@ -38,15 +34,6 @@ frame_2.pack()
 my_label_frame = tk.LabelFrame(my_frame, labelanchor='se', text="my label frame", width=150, height=100, bg='green')
 my_label_frame.pack_propagate(0)
 my_label_frame.pack()
-
-my_entry_text = tk.StringVar()
-my_entry = tk.Entry(my_label_frame, textvariable=my_entry_text)
-my_entry_text.set("Hello world. Is everything ok? We can work on it!!")
-my_entry.pack()
-
-my_text = tk.Text(my_label_frame)
-my_text.pack()
-my_text.insert(tk.INSERT, my_entry_text.get())
 
 my_text_variable = tk.StringVar()
 my_text_variable.set("Hello!")
