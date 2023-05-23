@@ -47,13 +47,4 @@ my_menu.add_command(label="About", command=about, underline=0)
 
 my_window.config(menu=my_menu)
 
-# my_entry_text = tk.StringVar()
-# my_entry = tk.Entry(my_window, textvariable=my_entry_text)
-# my_entry_text.set("Hello world. Is everything ok? We can work on it!!")
-# my_entry.pack()
-#
-# my_text = tk.Text(my_window)
-# my_text.pack()
-# my_text.insert(tk.INSERT, my_entry_text.get())
-
 my_window.mainloop()
