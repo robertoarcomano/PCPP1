@@ -8,6 +8,7 @@
 5 conn.commit()
 6 select: iterator cursor.execute
     6.1 without iterator: cursor.fetchall
+7 update/delete: execute
 """
 import sqlite3
 
