@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data>
+    <movie name="The Little Prince">
+        <year>1943</year>
+    </movie>
+    <movie name="Hamlet">
+        <year>1603</year>
+    </movie>
+</data>
