@@ -1,0 +1,14 @@
+CRITICAL:root:My critical message
+INFO:root:My info message
+root:CRITICAL:2023-06-04 13:59:35,557:My critical message
+root:INFO:2023-06-04 13:59:35,558:My info message
+root:CRITICAL:2023-06-04 14:03:33,317:My critical message
+root:INFO:2023-06-04 14:03:33,317:My info message
+root:CRITICAL:2023-06-04 14:03:40,329:My critical message
+root:INFO:2023-06-04 14:03:40,329:My info message
+root:CRITICAL:2023-06-04 14:05:40,337:My critical message
+root:INFO:2023-06-04 14:05:40,337:My info message
+logger1:CRITICAL:2023-06-04 14:05:40,338:critical
+root:CRITICAL:2023-06-04 14:08:49,083:My critical message
+root:INFO:2023-06-04 14:08:49,083:My info message
+logger1:CRITICAL:2023-06-04 14:08:49,083:critical
