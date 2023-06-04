@@ -1,7 +1,9 @@
 """
 1 Configparser to read configuration from a file
 2 Structure: like Windows .ini file
-3 Craete a ConfigParser obj
+3 Create a ConfigParser obj
+4 read from file
+5 write to file descriptor
 """
 import configparser
 
@@ -39,3 +41,11 @@ print("Reading from dict")
 config2 = configparser.ConfigParser()
 config2.read_dict(my_dict)
 show_config(config2)
+
+print("Writing")
+config3 = configparser.ConfigParser()
+config3.read_dict(my_dict)
+show_config(config3)
+with open("config1.ini", "w") as configfile:
+    config3.write(configfile)
+
