@@ -4,8 +4,10 @@
 3 Create a ConfigParser obj
 4 read from file
 5 write to file descriptor
+6 interpolation (templating)
 """
 import configparser
+
 
 def show_config(config, use_get = False):
     for section in config.sections():
@@ -44,8 +46,24 @@ show_config(config2)
 
 print("Writing")
 config3 = configparser.ConfigParser()
-config3.read_dict(my_dict)
+config3["DEFAULT"] = {"host": "localhost"}
+config3["ORACLE"] = {
+    "username": "user",
+    "password": "pass"
+}
+config3["MYSQL"] = {
+    "username": "user1",
+    "password": "pass1",
+    "test_host": "%(host)s"
+}
 show_config(config3)
 with open("config1.ini", "w") as configfile:
     config3.write(configfile)
+print()
+
+print("Reading the interpolated value")
+config4 = configparser.ConfigParser()
+config4.read("config1.ini")
+show_config(config4)
+
 
