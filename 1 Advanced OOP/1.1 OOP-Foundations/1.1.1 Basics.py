@@ -15,6 +15,8 @@
 7. variables without SELF are just local
 8. when reading a self.VARIABLE_NAME, if it doesn't exists it will use the static variable. Then COW
 """
+
+
 class Myclass:
     static_var = "static"
 
