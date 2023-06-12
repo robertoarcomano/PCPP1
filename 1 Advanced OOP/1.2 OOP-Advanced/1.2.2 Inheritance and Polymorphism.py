@@ -12,8 +12,9 @@ def polymorphism():
     a = "Hello"
     print(a.__add__(" World!"))
 
-# class Myclass
+
 polymorphism()
+
 
 class Person:
     def __init__(self, name):
@@ -22,12 +23,17 @@ class Person:
         pass
     def presentation(self):
         print(self.title() + self.name)
+
+
 class Man(Person):
     def title(self):
         return "Mr."
+
+
 class Woman(Person):
     def title(self):
         return "Ms."
+
 
 tom = Man("Tom")
 lucy = Woman("Lucy")
