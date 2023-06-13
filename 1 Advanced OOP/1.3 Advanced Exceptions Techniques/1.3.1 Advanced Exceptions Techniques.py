@@ -18,7 +18,7 @@
 """
 class MyClassException(Exception):
     pass
-class Myclass:
+class MyClass:
     def __init__(self, n):
         self.n = n
     def division(self, m):
@@ -70,7 +70,7 @@ class Myclass:
             raise MyClassException("Problem with bounds") from e
 
 
-myclass1 = Myclass(10)
+myclass1 = MyClass(10)
 print(myclass1.division(0))
 myclass1.fake_import()
 myclass1.fake_decode()

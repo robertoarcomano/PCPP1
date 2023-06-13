@@ -18,15 +18,21 @@
 7. You can use a Class decorating with arguments: use __init__ amd __call__
 8. You can decorate a Class
 """
+
+
 def decorator(function):
     print("I am calling the function:", function.__name__)
     return function
+
+
 @decorator
 def myfunction():
     print("this is myfunction")
 
+
 myfunction()
 print()
+
 
 def decorator_new(function):
     def wrapper(*args, **kwargs):

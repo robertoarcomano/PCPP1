@@ -13,11 +13,11 @@
    CLASS_NAME.CLASS_ATTR_NAME = VALUE to set the value of a class
    Do not use OBJECT_NAME.CLASS_ATTR_NAME = VALUE, it creates a new instance variable!!
 7. variables without SELF are just local
-8. when reading a self.VARIABLE_NAME, if it doesn't exists it will use the static variable. Then COW
+8. when reading a self.VARIABLE_NAME, if it doesn't exist it will use the static variable. Then COW
 """
 
 
-class Myclass:
+class MyClass:
     static_var = "static"
 
     def __init__(self):
@@ -25,18 +25,18 @@ class Myclass:
 
         print("static_var:", static_var)
         print("self.static_var:", self.static_var)
-        print("Myclass.static_var:", Myclass.static_var)
+        print("MyClass.static_var:", MyClass.static_var)
 
         self.static_var = "dynamic1"
 
         print("static_var:", static_var)
         print("self.static_var:", self.static_var)
-        print("Myclass.static_var:", Myclass.static_var)
+        print("MyClass.static_var:", MyClass.static_var)
 
         print()
 
 
-i1 = Myclass()
-i2 = Myclass()
+i1 = MyClass()
+i2 = MyClass()
 
-print(Myclass.static_var)
+print(MyClass.static_var)

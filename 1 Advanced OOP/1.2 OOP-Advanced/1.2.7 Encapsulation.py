@@ -5,7 +5,7 @@
 4. @ATTRIBUTE.setter uses "=" operator
 5. @ATTRIBUTE.deleter to remove the attribute
 """
-class Myclass:
+class MyClass:
     def __init__(self, name):
         self.__name = name
     @property
@@ -19,7 +19,7 @@ class Myclass:
         self.__name = None
 
 
-myclass = Myclass("myclass")
+myclass = MyClass("myclass")
 print(myclass.name)
 myclass.name = "myclass2"
 print(myclass.name)

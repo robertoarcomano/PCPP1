@@ -20,16 +20,16 @@
     5.5 metaclasses are subclasses of the type class.
 6. type( , , ) creates a new class
 """
-class Myclass:
+class MyClass:
     pass
 
 
-myclass = Myclass()
-print("Myclass.__name__:", Myclass.__name__)
-print("Myclass.__class__:", Myclass.__class__)
-print("type(Myclass):", type(Myclass))
-print("Myclass.__bases__:", Myclass.__bases__)
-print("Myclass.__dict__:", Myclass.__dict__)
+myclass = MyClass()
+print("MyClass.__name__:", MyClass.__name__)
+print("MyClass.__class__:", MyClass.__class__)
+print("type(MyClass):", type(MyClass))
+print("MyClass.__bases__:", MyClass.__bases__)
+print("MyClass.__dict__:", MyClass.__dict__)
 print()
 print("myclass.__class__:", myclass.__class__)
 print("type(myclass):", type(myclass))
@@ -50,14 +50,14 @@ print()
 def get_name(self):
     return self.name
 myattributes = { "name": "myclass1", "get_name": get_name }
-Myclass1 = type("Myclass1",(Myclass,), myattributes)
-print("Myclass1.__name__:", Myclass1.__name__)
-print("Myclass1.__class__:", Myclass1.__class__)
-print("type(Myclass1):", type(Myclass1))
-print("Myclass1.__bases__:", Myclass1.__bases__)
-print("Myclass1.__dict__:", Myclass1.__dict__)
+MyClass1 = type("MyClass1",(MyClass,), myattributes)
+print("MyClass1.__name__:", MyClass1.__name__)
+print("MyClass1.__class__:", MyClass1.__class__)
+print("type(MyClass1):", type(MyClass1))
+print("MyClass1.__bases__:", MyClass1.__bases__)
+print("MyClass1.__dict__:", MyClass1.__dict__)
 print()
-myclass1 = Myclass1()
+myclass1 = MyClass1()
 print("myclass1.name:", myclass1.name)
 print("myclass1.get_name():", myclass1.get_name())
 print()
@@ -68,14 +68,14 @@ class Mymeta(type):
         obj.name = "This is my new attribute!!"
         return obj
 
-class MyclassFromMeta(metaclass=Mymeta):
+class MyClassFromMeta(metaclass=Mymeta):
     pass
 
-print("MyclassFromMeta.__name__:", MyclassFromMeta.__name__)
-print("MyclassFromMeta.__class__:", MyclassFromMeta.__class__)
-print("type(MyclassFromMeta):", type(MyclassFromMeta))
-print("MyclassFromMeta.__bases__:", MyclassFromMeta.__bases__)
-print("MyclassFromMeta.__dict__:", MyclassFromMeta.__dict__)
+print("MyClassFromMeta.__name__:", MyClassFromMeta.__name__)
+print("MyClassFromMeta.__class__:", MyClassFromMeta.__class__)
+print("type(MyClassFromMeta):", type(MyClassFromMeta))
+print("MyClassFromMeta.__bases__:", MyClassFromMeta.__bases__)
+print("MyClassFromMeta.__dict__:", MyClassFromMeta.__dict__)
 
-myclassfrommeta1 = MyclassFromMeta()
+myclassfrommeta1 = MyClassFromMeta()
 print("myclassfrommeta1.name:", myclassfrommeta1.name)

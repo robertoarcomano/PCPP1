@@ -17,14 +17,14 @@ import time
 import copy
 
 
-class Myclass:
+class MyClass:
     pass
 
 
-myclass1 = Myclass()
+myclass1 = MyClass()
 myclass2 = myclass1
-myclass3 = Myclass()
-print("id(Myclass): ", id(Myclass))
+myclass3 = MyClass()
+print("id(MyClass): ", id(MyClass))
 print("id(myclass1): ", id(myclass1))
 print("id(myclass2): ", id(myclass2))
 print("id(myclass3): ", id(myclass3))

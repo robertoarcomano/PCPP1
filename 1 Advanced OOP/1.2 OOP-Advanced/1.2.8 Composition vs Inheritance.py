@@ -4,12 +4,12 @@
 3. Composition = has_a. The class is a "container" (composite) of other objects
 4. Composition = more responsibility to the developer who needs to implement all methods
 """
-class Myclass:
+class MyClass:
     def __init__(self, name):
         self.name = name
-class Firstclass(Myclass):
+class Firstclass(MyClass):
     pass
-class Secondclass(Myclass):
+class Secondclass(MyClass):
     def __init__(self, name, other_obj=None):
         super().__init__(name)
         if other_obj is not None:

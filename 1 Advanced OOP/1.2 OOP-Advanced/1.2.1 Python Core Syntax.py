@@ -55,7 +55,7 @@ item in container	__contains__(self, item)	responds to the question: does the co
 isinstance(object, class)	__instancecheck__(self, object)	responsible for handling isinstance() function calls
 issubclass(subclass, class)	__subclasscheck__(self, subclass)	responsible for handling issubclass() function calls
 """
-class Myclass:
+class MyClass:
     def __init__(self, n):
 
         self.n = n
@@ -69,10 +69,10 @@ class Myclass:
     def __getattribute__(self, attribute):
         return super().__getattribute__(attribute) + 0;
 
-myclass1 = Myclass(1)
+myclass1 = MyClass(1)
 print("myclass1.n:",myclass1.n)
 
-myclass2 = Myclass(2)
+myclass2 = MyClass(2)
 print("myclass2.n:",myclass2.n)
 print()
 
@@ -90,5 +90,5 @@ print()
 print("isinstance(myclass1,object):", isinstance(myclass1,object))
 print()
 
-print("issubclass(Myclass,object):", issubclass(Myclass,object))
+print("issubclass(MyClass,object):", issubclass(MyClass,object))
 print()

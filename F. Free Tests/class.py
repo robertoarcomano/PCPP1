@@ -29,4 +29,4 @@ print()
 
 print("MyClass.__dict__:", MyClass.__dict__)
 print("MyClass.__doc__:", MyClass.__doc__)
-print("a.__doc__:", a.__doc__)
+print("dir():", dir())

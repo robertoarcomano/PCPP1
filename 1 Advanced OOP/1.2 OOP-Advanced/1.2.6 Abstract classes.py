@@ -6,7 +6,8 @@
 """
 import abc
 
-class Myclass(abc.ABC):
+
+class MyClass(abc.ABC):
     def __init__(self, name):
         self.name = name
     @abc.abstractmethod
@@ -14,10 +15,10 @@ class Myclass(abc.ABC):
         pass
     def get_name(self):
         return self.name
-class Myclass1(Myclass):
+class MyClass1(MyClass):
     def presentation(self, *args, **kwargs):
         self.name = args[0] + " " + self.name
 
-myclass1 = Myclass1("myclass1")
+myclass1 = MyClass1("myclass1")
 myclass1.presentation("Hello")
 print(myclass1.get_name())
