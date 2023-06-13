@@ -129,6 +129,7 @@ def myfunction_decorator_of_class(class_):
     class_.__getattribute__ = new_getattr
     return class_
 @myfunction_decorator_of_class
+
 class ClassDecorator:
     def __init__(self, name):
         self.name = name
