@@ -6,12 +6,14 @@ def show_types(obj):
     print("type({}):".format(obj), type(var), " | {}.__class__:".format(obj), var.__class__)
 
 
+
 class MyClass:
     '''My __init__ method'''
     def __init__(self, name):
         self.name = name
+        print(global_var)
 
-
+global_var = "ok"
 my_object = MyClass("Roberto")
 print("getattr(my_object, \"name\"):", getattr(my_object, "name"))
 print("setattr(my_object, \"name\", \"Roby\")")
