@@ -5,7 +5,7 @@
     "type" for static class#
     "__main__".CLASS_NAME for objects
     "str" for strings
-    "method" for methods
+    "function" for methods
 4. Instance variables: they use self -> only related to the instance
 5. __dict__ shows the contents of an object/class: key/value json "__dict__(OBJECTNAME)"
 6. Class variables: defined outside any methods, "__dict__(CLASSNAME)",

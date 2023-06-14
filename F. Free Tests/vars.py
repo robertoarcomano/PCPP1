@@ -9,6 +9,8 @@ def fn():
 """
 
 global_var = 1
+
+
 # nonlocal
 # LEGB stand for Local, Enclosing, Global, and Built-in
 # __code__
@@ -27,6 +29,7 @@ def fn2():
 
 def fn3():
     nonlocal_var = 1
+
     def fn31():
         print(nonlocal_var)
         # Error
@@ -35,10 +38,11 @@ def fn3():
 
 def fn4():
     nonlocal_var = 1
+
     def fn41():
         nonlocal nonlocal_var
         print(nonlocal_var)
-        nonlocal_var +=1
+        nonlocal_var += 1
 
 
 print(global_var)
@@ -47,4 +51,3 @@ fn2()
 fn3()
 fn4()
 print(global_var)
-
