@@ -12,3 +12,9 @@ print("float(n):", f)
 
 o = oct(n)
 print("oct(n):", o)
+
+b = bool(n)
+print("bool(n):", b)
+
+s = str(b)
+print("str(b):", s)

@@ -6,6 +6,8 @@
     2.2. Duck typing (only some of the classes can manage a specific method -> otherwise exception)
          It is more generic than simple inheritance
 """
+
+
 def polymorphism():
     a = 10
     print(a.__add__(20))
@@ -19,8 +21,10 @@ polymorphism()
 class Person:
     def __init__(self, name):
         self.name = name
+
     def title(self):
         pass
+
     def presentation(self):
         print(self.title() + self.name)
 
