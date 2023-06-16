@@ -1,4 +1,8 @@
-class Vehicle:
+import abc
+
+
+class Vehicle(abc.ABC):
+    @abc.abstractmethod
     def turn(self):
         print("I should do something the turn...")
 
