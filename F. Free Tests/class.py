@@ -8,7 +8,7 @@ class Vehicle(abc.ABC):
 
     @abc.abstractmethod
     def turn(self):
-        return "I should do something the turn..."
+        return "I should do something..."
 
 
 class Car(Vehicle):
@@ -34,3 +34,7 @@ title("setattr(my_object, \"name\", \"Honda Shadow\")")
 setattr(honda, "name", "Honda Shadow")
 title("getattr(my_object, \"name\"):", getattr(honda, "name"))
 print()
+
+title("Dynamically typed")
+print("1 + 2 =", (1 + 2))
+print("'1' + '2' =", ('1' + '2'))
