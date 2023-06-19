@@ -18,40 +18,48 @@ import copy
 
 
 class MyClass:
-    pass
+    def __init__(self, name):
+        self.name = name
+
+    def __eq__(self, other):
+        return self.name == other.name
 
 
-myclass1 = MyClass()
+myclass1 = MyClass("myclass1")
 myclass2 = myclass1
-myclass3 = MyClass()
+myclass3 = MyClass("myclass3")
+myclass1_new = MyClass("myclass1")
 print("id(MyClass): ", id(MyClass))
 print("id(myclass1): ", id(myclass1))
 print("id(myclass2): ", id(myclass2))
 print("id(myclass3): ", id(myclass3))
+print("id(myclass1_new): ", id(myclass1_new))
 print("myclass1 == myclass2:", myclass1 == myclass2)
-print("myclass1 == myclass3:", myclass1 == myclass3)
 print("myclass1 is myclass2:", myclass1 is myclass2)
+print("myclass1 == myclass3:", myclass1 == myclass3)
 print("myclass1 is myclass3:", myclass1 is myclass3)
+print("myclass1 == myclass1_new:", myclass1 == myclass1_new)
+print("myclass1 is myclass1_new:", myclass1 is myclass1_new)
 
-o1 = [i for i in range(1,10000000)]
-o2 = [i for i in range(1,10000000)]
+o1 = [i for i in range(1, 10000000)]
+o2 = [i for i in range(1, 10000000)]
 
 start = time.time()
 print(o1 is o2)
 stop = time.time()
-print("Time to execute \"is\":", stop-start)
+print("Time to execute \"is\":", stop - start)
 
 start = time.time()
 print(o1 == o2)
 stop = time.time()
-print("Time to execute \"==\":", stop-start)
+print("Time to execute \"==\":", stop - start)
 
 start = time.time()
 o2 = copy.copy(o1)
 stop = time.time()
-print("Time to execute copy.copy():", stop-start)
+print("Time to execute copy.copy():", stop - start)
 
 start = time.time()
 o2 = copy.deepcopy(o1)
 stop = time.time()
-print("Time to execute copy.deepcopy():", stop-start)
+print("Time to execute copy.deepcopy():", stop - start)
