@@ -1,41 +1,36 @@
-import json
+import abc
+from common import title
 
 
-def show_types(obj):
-    var = globals()[obj]
-    print("type({}):".format(obj), type(var), " | {}.__class__:".format(obj), var.__class__)
-
-
-class MyClass:
-    '''My __init__ method'''
-
+class Vehicle(abc.ABC):
     def __init__(self, name):
         self.name = name
-        print(global_var)
 
-    @staticmethod
-    def my_static():
-        print(global_var)
-        return False
+    @abc.abstractmethod
+    def turn(self):
+        return "I should do something the turn..."
 
 
-global_var = "ok"
-my_object = MyClass("Roberto")
-my_object.my_static()
-print("getattr(my_object, \"name\"):", getattr(my_object, "name"))
-print("setattr(my_object, \"name\", \"Roby\")")
-setattr(my_object, "name", "Roby")
-print("getattr(my_object, \"name\"):", getattr(my_object, "name"))
+class Car(Vehicle):
+    def turn(self):
+        return "turn the wheels"
+
+
+class Motorcycle(Vehicle):
+    def turn(self):
+        return "tilt the vehicle"
+
+
+title("honda = Motorcycle('Honda')")
 print()
-
-show_types("my_object")
-show_types("MyClass")
-show_types("__name__")
-""" my variable a"""
-a = 2
-show_types("a")
+title("astra = Car('Astra')")
 print()
-
-print("MyClass.__dict__:", MyClass.__dict__)
-print("MyClass.__doc__:", MyClass.__doc__)
-print("dir():", dir())
+honda = Motorcycle('Honda')
+astra = Car('Astra')
+title("astra.turn()", astra.turn())
+title("honda.turn()", honda.turn())
+title("getattr(honda, \"name\"):", getattr(honda, "name"))
+title("setattr(my_object, \"name\", \"Honda Shadow\")")
+setattr(honda, "name", "Honda Shadow")
+title("getattr(my_object, \"name\"):", getattr(honda, "name"))
+print()

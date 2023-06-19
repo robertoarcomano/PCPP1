@@ -7,8 +7,14 @@ g = 10
 def fn():
     g += 1
 """
+from common import title
 
 global_var = 1
+
+
+def fn1():
+    global_var = 2
+    return global_var
 
 
 # nonlocal
@@ -16,14 +22,11 @@ global_var = 1
 # __code__
 
 
-def fn1():
-    global_var = 2
-    print(global_var)
-
-
 def fn2():
-    # Error
-    # global_var +=1
+    try:
+        global_var += 1
+    except BaseException as ex:
+        return ex
     pass
 
 
@@ -31,23 +34,15 @@ def fn3():
     nonlocal_var = 1
 
     def fn31():
-        print(nonlocal_var)
-        # Error
-        # nonlocal_var +=1
-
-
-def fn4():
-    nonlocal_var = 1
-
-    def fn41():
         nonlocal nonlocal_var
-        print(nonlocal_var)
         nonlocal_var += 1
+        return nonlocal_var
+
+    return fn31()
 
 
-print(global_var)
-fn1()
-fn2()
-fn3()
-fn4()
-print(global_var)
+title("global_var", global_var)
+title("fn1().global_var", fn1(), "global_var", global_var)
+title("fn2()", fn2())
+title("fn3().nonlocal_var", fn3())
+print("Reference by string. globals()['global_var']:", globals()['global_var'])

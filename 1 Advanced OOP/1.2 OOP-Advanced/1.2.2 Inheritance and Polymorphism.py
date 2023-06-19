@@ -8,16 +8,6 @@
 """
 
 
-def polymorphism():
-    a = 10
-    print(a.__add__(20))
-    a = "Hello"
-    print(a.__add__(" World!"))
-
-
-polymorphism()
-
-
 class Person:
     def __init__(self, name):
         self.name = name
