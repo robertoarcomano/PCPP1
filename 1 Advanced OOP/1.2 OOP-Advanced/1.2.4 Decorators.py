@@ -6,7 +6,7 @@
     2.1 the validation of arguments;
     2.2 the modification of arguments;
     2.3 the modification of returned objects;
-    2.4 the measurement of execution time;
+    # 2.4 the measurement of execution time;
     2.5 message logging;
     2.6 thread synchronization;
     2.7 code refactorization;
