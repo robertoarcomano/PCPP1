@@ -34,7 +34,9 @@ title("f")
 for i in f:
     print(i, end=" ")
 print()
+print("f.issuperset(s):", f.issuperset(s))
 print()
+
 print("c = complex(1, 2)")
 c = complex(1, 2)
 title("c", c)
