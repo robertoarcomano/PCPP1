@@ -21,12 +21,12 @@ def function(a, b, c="c", *args, z="z", **kwargs):
     print("args: ", args)
     print("z: ", z)
     print("kwargs: ", kwargs)
-    subfunction(*args, **kwargs)
+    sub_function(*args, **kwargs)
 
 
-def subfunction(*args, **kwargs):
+def sub_function(*args, **kwargs):
     print()
-    print("subfunction")
+    print("sub_function")
     print("args: ", args)
     print("kwargs: ", kwargs)
 
