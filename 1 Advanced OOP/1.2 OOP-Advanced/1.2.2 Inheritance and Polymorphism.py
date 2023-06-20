@@ -29,7 +29,8 @@ class Woman(Person):
         return "Ms."
 
 
+print("Polymorphism")
 tom = Man("Tom")
 lucy = Woman("Lucy")
-for person in (tom, lucy):
+for person in (tom, lucy,):
     person.presentation()

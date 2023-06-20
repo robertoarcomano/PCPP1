@@ -11,7 +11,9 @@
     3.1 additional positional arguments *args (tuple)
     3.2 additional keyword arguments **kwargs (dictionary)
 """
-def function(a, b, c = "c", *args, z = "z", **kwargs):
+
+
+def function(a, b, c="c", *args, z="z", **kwargs):
     print("function")
     print("a: ", a)
     print("b: ", b)
@@ -20,10 +22,13 @@ def function(a, b, c = "c", *args, z = "z", **kwargs):
     print("z: ", z)
     print("kwargs: ", kwargs)
     subfunction(*args, **kwargs)
+
+
 def subfunction(*args, **kwargs):
     print()
     print("subfunction")
     print("args: ", args)
     print("kwargs: ", kwargs)
+
 
 function(1, 2, 3, 4, z="k", name="Roberto")
