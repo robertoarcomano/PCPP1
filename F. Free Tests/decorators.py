@@ -75,19 +75,20 @@ def greeting_upper(name):
 
 
 class UpperCaseWithParams:
-    def __init__(self, function):
-        self.function = function
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
 
     def __call__(self, function):
-        return self.function(name.upper())
+        def wrapper(name):
+            return function(name.lower() + str(self.args))
 
-    def __call__(self, name):
-        return self.function(name.upper())
+        return wrapper
 
 
-# @UpperCaseWithParams()
-# def greeting_upper_with_params(name):
-#     return "Hello " + name
+@UpperCaseWithParams(False)
+def greeting_upper_with_params(name):
+    return "Hello " + name
 
 
 greeting_manual = add_intro(greeting)
@@ -103,5 +104,9 @@ title("greeting_with_thank_you_params_manual('Roby')", greeting_with_thank_you_p
 title("greeting_with_thank_you_params_auto('Roby')", greeting_with_thank_you_params_auto('Roby'))
 
 greeting_upper_manual = UpperCase(greeting)
-title("greeting_with_thank_you_params_manual('Roby')", greeting_upper_manual('Roby'))
+title("greeting_upper_manual('Roby')", greeting_upper_manual('Roby'))
 title("greeting_upper('Roby')", greeting_upper('Roby'))
+
+greeting_upper_with_params_manual = UpperCaseWithParams(False)(greeting)
+title("greeting_upper_with_params_manual('Roby')", greeting_upper_with_params_manual('Roby'))
+title("greeting_upper_with_params('Roby')", greeting_upper_with_params('Roby'))
