@@ -91,6 +91,22 @@ def greeting_upper_with_params(name):
     return "Hello " + name
 
 
+def upper_the_constructor(class_):
+    class_.old__init__ = class_.__init__
+
+    def new_constructor(self, name):
+        class_.old__init__(self, name.upper())
+
+    class_.__init__ = new_constructor
+    return class_
+
+
+@upper_the_constructor
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+
+
 greeting_manual = add_intro(greeting)
 title("greeting_manual('Roby')", greeting_manual('Roby'))
 title("greeting_auto('Roby')", greeting_auto('Roby'))
@@ -110,3 +126,6 @@ title("greeting_upper('Roby')", greeting_upper('Roby'))
 greeting_upper_with_params_manual = UpperCaseWithParams(False)(greeting)
 title("greeting_upper_with_params_manual('Roby')", greeting_upper_with_params_manual('Roby'))
 title("greeting_upper_with_params('Roby')", greeting_upper_with_params('Roby'))
+
+my_obj = MyClass("Roberto")
+title("my_obj.name", my_obj.name)
