@@ -8,6 +8,19 @@ class Vehicle(abc.ABC):
     def __init__(self, name):
         self.name = name
         Vehicle.add_object(name)
+        self.year = 2000
+
+    @property
+    def year(self):
+        return self.__year
+
+    @year.setter
+    def year(self, year):
+        self.__year = year
+
+    @year.deleter
+    def year(self):
+        self.__year = None
 
     @abc.abstractmethod
     def turn(self):
@@ -63,3 +76,10 @@ print()
 
 title("Factorial")
 title("astra.get_factorial(5)", astra.get_factorial(5))
+
+astra.year = 2023
+title("astra.year = 2023")
+title("astra.year", astra.year)
+del astra.year
+title("delete astra.year")
+title("astra.year", astra.year)

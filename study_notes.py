@@ -1,1 +1,1 @@
-# 1.2.4 Decorators
+# 1.2.7 Encapsulation
