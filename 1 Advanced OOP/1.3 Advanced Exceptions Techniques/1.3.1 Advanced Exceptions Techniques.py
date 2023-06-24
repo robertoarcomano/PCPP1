@@ -58,7 +58,7 @@ class MyClass:
         mylist = [0, 1]
         try:
             print(mylist[2])
-        except BaseException:
+        except BaseException as first:
             try:
                 import xxx
             except ImportError as second:
@@ -66,9 +66,24 @@ class MyClass:
                     print(0 / 0)
                 except ZeroDivisionError as third:
                     print("third exception:", third)
+                    print("third.__context__", third.__context__)
+                    print("third.__cause__", third.__cause__)
+                    print("third.__traceback__", third.__traceback__)
+                    print()
+
                     print("second exception:", second)
+                    print("second.__context__", second.__context__)
+                    print("second.__cause__", second.__cause__)
+                    print("second.__traceback__", second.__traceback__)
+                    print()
+
+                    print("first exception:", first)
+                    print("first.__context__", first.__context__)
+                    print("first.__cause__", first.__cause__)
+                    print("first.__traceback__", first.__traceback__)
+                    print()
+
                     print("third.__context__ is second", third.__context__ is second)
-                    print("first exception(second.__context__):", second.__context__)
 
     @staticmethod
     def explicit_exception_raise():
@@ -89,9 +104,11 @@ try:
     myclass1.explicit_exception_raise()
 except MyClassException as f:
     print(f, "caused by", f.__cause__)
-    print(f.__traceback__)
+    print("f.__context__", f.__context__)
+    print("f.__traceback__:", f.__traceback__)
+
     import traceback
 
     details = traceback.format_tb(f.__traceback__)
     print("\n".join(details))
-    traceback.print_tb(f.__traceback__)
+    # traceback.print_tb(f.__traceback__)

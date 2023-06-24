@@ -1,1 +1,1 @@
-# 1.2.7 Encapsulation
+# 1.3.1 Advanced Exceptions Techniques
