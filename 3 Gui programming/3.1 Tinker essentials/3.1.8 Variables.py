@@ -24,13 +24,13 @@
     2 obsid = variable.trace(trace_mode, observer) to start tracing
         2.1 trace_mode = being aware of:
             2.1.1 "r" get()
-            2.1.2 "r" set()
+            2.1.2 "w" set()
             2.1.3 "u" del()
         2.2 observer = function
         2.3 obsid = identifier
     3 observer parameters:
         3.1 id, internal use
-        3.2 ix, internal use (empty string)
+        3.2 idx, internal use (empty string)
         3.3 act, reason ("r", "w", "u")
         3.4 def obs(*) if we do not need parameters
     4 variable.trace_vdelete(trace_mode,obsid) to stop tracing
@@ -45,7 +45,7 @@ def show_status():
 
 
 def swap_status():
-    status.set(1-status.get())
+    status.set(1 - status.get())
     # print(status.get())
 
 

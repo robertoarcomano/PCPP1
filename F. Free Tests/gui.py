@@ -34,7 +34,27 @@ my_radiobutton2 = tk.Radiobutton(my_frame2, text="Radio2", variable=radio_var, v
 my_radiobutton2.pack(side=tk.LEFT, fill=tk.Y)
 
 my_label = tk.Label(my_frame4, textvariable=radio_var)
+radio_var.trace("w", lambda id, idx, act: print(radio_var.get()))
+
+
+def increment_label():
+    radio_var.set(radio_var.get() + 1)
+    my_label.after(100, increment_label)
+
+
+my_label.after(100, increment_label)
 my_label.pack()
+
+
+def change_background(x):
+    my_button.config(background="green")
+    my_button["fg"] = "yellow"
+    print("new value:", my_button.cget("background"))
+
+
+my_frame1.bind("<Button-1>", change_background)
+my_frame3.bind("<Button-1>",
+               lambda x: messagebox.showerror("Clicked on the red!", "Clicked on the red!\nEvent:" + str(x)))
 my_frame4.pack()
 
 my_checkbutton1 = tk.Checkbutton(my_frame3, text="Check 1", command=lambda: messagebox.showinfo("Check 1", "Check 1"))
