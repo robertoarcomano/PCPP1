@@ -39,4 +39,12 @@ class MyClass:
 i1 = MyClass()
 i2 = MyClass()
 
-print(MyClass.static_var)
+print("MyClass.static_var:", MyClass.static_var)
+print("getattr(i1, \"static_var\"):", getattr(i1, "static_var"))
+print("getattr(MyClass, \"static_var\"):", getattr(MyClass, "static_var"))
+print()
+print("setattr(MyClass, \"static_var\", \"My new value\")")
+setattr(MyClass, "static_var", "My new value")
+print("getattr(MyClass, \"static_var\"):", getattr(MyClass, "static_var"))
+print("getattr(i1, \"static_var\"):", getattr(i1, "static_var"))
+print("getattr(i2, \"static_var\"):", getattr(i2, "static_var"))
