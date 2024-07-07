@@ -1,2 +1,4 @@
-# 2 PEP
-# 3 GUI
+# Study more
+# 1. dir(obj) bs help(obj)
+# 2. mro
+# 3. PEP
